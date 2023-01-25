@@ -37,7 +37,15 @@
         <div class="col-md-3" style = "margin-top: 20px">
             <div class="bg-light p-5 rounded">
                 <h1>Categories</h1>
-                <!-- <a class="btn btn-lg btn-primary" href="/docs/5.3/components/navbar/" role="button">View navbar docs &raquo;</a> -->
+                <?php
+                    $query = "SELECT * FROM category LIMIT 3";
+                    $select_all_cat = mysqli_query($connection , $query);
+
+                    while($row = mysqli_fetch_assoc($select_all_cat)){
+                        $post_cat = $row['cat_name'];
+                        echo "<li>$post_cat</li>";
+                    }
+                ?>
             </div>
         </div>
     </div>
