@@ -16,6 +16,7 @@
                         echo "<li><a href='#' style='padding-right:10px;'>{$post_cat}</a></li>";
                     }
                 ?>
+                <li><a href="admin">Admin</a></li>
             </ul>
 
             
