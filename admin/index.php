@@ -1,3 +1,4 @@
+<?php include "admin_functions.php"?>
 <?php include "includes/admin_header.php"?>
 
 

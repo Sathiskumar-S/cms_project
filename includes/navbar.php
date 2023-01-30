@@ -8,13 +8,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <?php
-                    $query = "SELECT * FROM category";
-                    $select_all_cat = mysqli_query($connection , $query);
-
-                    while($row = mysqli_fetch_assoc($select_all_cat)){
-                        $post_cat = $row['cat_name'];
-                        echo "<li><a href='#' style='padding-right:10px;'>{$post_cat}</a></li>";
-                    }
+                    fetch_category();
                 ?>
                 <li><a href="admin">Admin</a></li>
             </ul>

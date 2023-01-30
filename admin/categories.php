@@ -1,11 +1,13 @@
-<?php include "includes/header.php"?>
-
+<?php include "admin_functions.php"?>
+<?php include "includes/admin_header.php"?>
+<?php ob_start(); ?>
 <body>
 
     <div id="wrapper">
 
         <!-- Navigation -->
-       <?php  include "includes/navbar.php" ?>
+       <?php  include "includes/admin_navbar.php" ?>
+       <?php  include "includes/admin_navigation.php" ?>
 
         <div id="page-wrapper">
 
@@ -20,24 +22,7 @@
                         </h1>
                         <div class="col-xs-6">
                             <?php
-                                if(isset($_POST['submit'])){
-                                    $cat_name = $_POST['cat_name'];
-
-                                    if($cat_name == "" || empty($cat_name)){
-                                        echo "Please fill this field";
-                                    }else{
-                                        $connection = mysqli_connect("localhost","cms_system","Sathis@243214","cms");
-                                        $insert_cat_query = "INSERT INTO category(cat_name) ";
-                                        $insert_cat_query .= "VALUE('{$cat_name}')";
-
-                                        $create_cat_query = mysqli_query($connection,  $insert_cat_query);
-                                        if(!$create_cat_query){
-                                            die("MYSQL FAILED" . mysqli_error($connection));
-                                        }
-                                    }
-
-                                }
-
+                                add_category();
                             ?>
                             <form action="categories.php" method="post">
                                 <div class="form-group">
@@ -49,17 +34,18 @@
                                 </div>
                             </form>
                             <?php
-                                if(isset($_GET['edit'])){
-                                    $cat_id = $_GET['edit'];
-                                    include "includes/update_categories.php";
-                                }
+                                // if(isset($_GET['edit'])){
+                                //     $cat_id = $_GET['edit'];
+                                //     include "includes/update_categories.php";
+                                // }
+                                include "includes/update_categories.php";
                             ?>
                         </div>
                         <div class="col-xs-6">
                             <?php
-                                $connection = mysqli_connect("localhost","cms_system","Sathis@243214","cms");
-                                $query = "SELECT * FROM category";
-                                $select_cat_admin = mysqli_query($connection , $query); 
+                               global $connection;
+                               $query = "SELECT * FROM category";
+                               $select_cat_admin = mysqli_query($connection,$query);
                             ?>
                             <table class="table table-bordered table-hover">
                                 <thead>
@@ -72,26 +58,12 @@
                                 </thead>
                                 <tbody>
                                     <?php
-                                        while($row = mysqli_fetch_assoc($select_cat_admin)){
-                                            $admin_id = $row['cat_id'];
-                                            $admin_cat = $row['cat_name'];
-                                            echo "<tr>";
-                                            echo "<td>$admin_id</td>";
-                                            echo "<td>$admin_cat</td>";
-                                            echo "<td><a href='categories.php?delete={$admin_id}'>Delete</a></td>";
-                                            echo "<td><a href='categories.php?edit={$admin_id}'>Edit</a></td>";
-                                            echo "</tr>";
-                                        }
+                                        fetch_category_table_data($select_cat_admin);
                                     ?>
                                 </tbody>
                             </table>
                             <?php
-                            if(isset($_GET['delete'])){
-                                $the_cat_id = $_GET['delete'];
-                                $delete_query = "DELETE FROM category WHERE cat_id = $the_cat_id ";
-                                $delete_cat_query = mysqli_query($connection,$delete_query);
-                                //header("Location: categories.php");
-                            }
+                              delete_category();
                             ?>
                         </div>
                         <!-- <ol class="breadcrumb">
@@ -114,4 +86,4 @@
 
     </div>
     <!-- /#wrapper -->
-    <?php include "includes/footer.php"?>
+    <?php include "includes/admin_footer.php"?>

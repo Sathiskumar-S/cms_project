@@ -1,5 +1,6 @@
-<?php include "includes/header.php"; ?>
-<?php include "db/db.php"?>
+<?php include  "functions.php" ?>
+<?php include "includes/header.php"?>
+
 <body>
     <!-- navbar -->
     <?php include "includes/navbar.php" ?>
@@ -29,7 +30,6 @@
                 </div>
                 <div class="col-auto d-none d-lg-block">
                     <img src="images/<?php echo $post_image ?>" alt="" width="200" height="250">
-                    <!-- <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg> -->
                 </div>
             </div>
         </div>
@@ -38,13 +38,7 @@
             <div class="bg-light p-5 rounded">
                 <h1>Categories</h1>
                 <?php
-                    $query = "SELECT * FROM category LIMIT 3";
-                    $select_all_cat = mysqli_query($connection , $query);
-
-                    while($row = mysqli_fetch_assoc($select_all_cat)){
-                        $post_cat = $row['cat_name'];
-                        echo "<li>$post_cat</li>";
-                    }
+                    fetch_sidebar_category();
                 ?>
             </div>
         </div>
