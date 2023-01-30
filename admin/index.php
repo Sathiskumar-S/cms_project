@@ -1,5 +1,7 @@
 <?php include "includes/header.php"?>
 
+
+<?php ob_start(); ?>
 <body>
 
     <div id="wrapper">

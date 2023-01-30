@@ -48,6 +48,12 @@
                                     <input class="btn btn-primary" type="submit" value="Add Category" name="submit">
                                 </div>
                             </form>
+                            <?php
+                                if(isset($_GET['edit'])){
+                                    $cat_id = $_GET['edit'];
+                                    include "includes/update_categories.php";
+                                }
+                            ?>
                         </div>
                         <div class="col-xs-6">
                             <?php
@@ -60,6 +66,8 @@
                                     <tr>
                                         <th>Id</th>
                                         <th>Category Title</th>
+                                        <th>Delete category</th>
+                                        <th>Edit category</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -70,11 +78,21 @@
                                             echo "<tr>";
                                             echo "<td>$admin_id</td>";
                                             echo "<td>$admin_cat</td>";
+                                            echo "<td><a href='categories.php?delete={$admin_id}'>Delete</a></td>";
+                                            echo "<td><a href='categories.php?edit={$admin_id}'>Edit</a></td>";
                                             echo "</tr>";
                                         }
                                     ?>
                                 </tbody>
                             </table>
+                            <?php
+                            if(isset($_GET['delete'])){
+                                $the_cat_id = $_GET['delete'];
+                                $delete_query = "DELETE FROM category WHERE cat_id = $the_cat_id ";
+                                $delete_cat_query = mysqli_query($connection,$delete_query);
+                                //header("Location: categories.php");
+                            }
+                            ?>
                         </div>
                         <!-- <ol class="breadcrumb">
                             <li>
