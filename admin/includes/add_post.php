@@ -17,7 +17,7 @@
 
         move_uploaded_file($post_image_temp,"../images/$post_image");
 
-        $insert_post_query = "INSERT INTO post(post_cat_id,post_title,post_author,post_date,post_image,post_content,post_tags,posts_comment_count,post_status) VALUES({$post_category_id},'{$post_title}','{$post_author}',now(),'{$post_image}','{$post_content}','{$post_tags}',{$post_comment_count},'{$post_tags}' )";
+        $insert_post_query = "INSERT INTO post(post_cat_id,post_title,post_author,post_date,post_image,post_content,post_tags,post_comment_count,post_status) VALUES({$post_category_id},'{$post_title}','{$post_author}',now(),'{$post_image}','{$post_content}','{$post_tags}',{$post_comment_count},'{$post_tags}' )";
 
 
         $insert_connection = mysqli_query($connection,$insert_post_query);
