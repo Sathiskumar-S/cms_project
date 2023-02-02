@@ -1,9 +1,7 @@
-<form action="categories.php" method="POST">
+<form action="" method="post">
     <div class="form-group">
+        <label for="Update Category">Update Category</label>
         <?php
-        $connection = mysqli_connect('localhost','cms_system','Sathis@243214','cms');
-        global $connection;
-        
         if(isset($_GET['edit'])){
             $cat_id = $_GET['edit'];
             $fetch_query = "SELECT * FROM category WHERE cat_id={$cat_id}";
@@ -13,16 +11,20 @@
                 $cat_id = $row['cat_id'];
                 $cat_name = $row['cat_name'];
             ?>
-            <label for="Update Category">Update Category</label>
-            <input type="text" class="form-control" name="cat_title" value="<?php if(isset($cat_name)){echo $cat_name;} ?>">
+            <input type="text" class="form-control" name="cat_name" value="<?php if(isset($cat_name)){echo $cat_name;} ?>">
 
         <?php }} ?>
         <?php
             if(isset($_POST['update'])){
-                $new_cat_id = $_POST['cat_id'];
-                $new_cat_name = $_POST['cat_title'];
-                $update_cat_name_query = "UPDATE category SET cat_name = '{$new_cat_name}' WHERE cat_id ={$new_cat_id} ";
+                //$new_cat_id = $_POST['cat_id'];
+                $new_cat_name = $_POST['cat_name'];
+                $update_cat_name_query = "UPDATE category SET cat_name='{$new_cat_name}' WHERE cat_id ={$cat_id}";
                 $update_cat_name_query_connection = mysqli_query($connection,$update_cat_name_query);
+                connection_error($update_cat_name_query_connection);
+                if($update_cat_name_query_connection){
+                    echo "Successfully updated";
+                }
+                
             }
 
         ?>

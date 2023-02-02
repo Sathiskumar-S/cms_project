@@ -11,7 +11,7 @@
                                 <a href="../admin/view_post.php">View Post</a>
                             </li>
                             <li>
-                                <a href="#">Dropdown Item</a>
+                                <a href="includes/add_post.php">Add Post</a>
                             </li>
                         </ul>
                     </li>

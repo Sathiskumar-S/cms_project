@@ -34,11 +34,10 @@
                                 </div>
                             </form>
                             <?php
-                                // if(isset($_GET['edit'])){
-                                //     $cat_id = $_GET['edit'];
-                                //     include "includes/update_categories.php";
-                                // }
-                                include "includes/update_categories.php";
+                                if(isset($_GET['edit'])){
+                                    $cat_id = $_GET['edit'];
+                                    include "includes/update_categories.php";
+                                }
                             ?>
                         </div>
                         <div class="col-xs-6">
@@ -66,14 +65,6 @@
                               delete_category();
                             ?>
                         </div>
-                        <!-- <ol class="breadcrumb">
-                            <li>
-                                <i class="fa fa-dashboard"></i>  <a href="index.html">Dashboard</a>
-                            </li>
-                            <li class="active">
-                                <i class="fa fa-file"></i> Blank Page
-                            </li>
-                        </ol> -->
                     </div>
                 </div>
                 <!-- /.row -->

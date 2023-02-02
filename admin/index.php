@@ -23,6 +23,13 @@
                             Welcome to Admin
                             <small>Author</small>
                         </h1>
+                        <?php
+                            $source = "add_post";
+                            switch($source){
+                                case 'add_post':
+                                    include "includes/add_post.php";
+                            }
+                        ?>
                         <!-- <ol class="breadcrumb">
                             <li>
                                 <i class="fa fa-dashboard"></i>  <a href="index.html">Dashboard</a>
