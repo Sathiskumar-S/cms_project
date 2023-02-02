@@ -12,9 +12,8 @@
                 ?>
                 <li><a href="admin">Admin</a></li>
             </ul>
-
-            
-            <form class="d-flex" role="search" action="index.php" method="post">
+            <!-- search engine -->
+            <form class="d-flex" role="search" action="search.php" method="post">
                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="search">
                 <button class="btn btn-outline-success" type="submit" name="submit">Search</button>
             </form>
