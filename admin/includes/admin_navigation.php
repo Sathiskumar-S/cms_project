@@ -11,7 +11,7 @@
                                 <a href="../admin/view_post.php">View Post</a>
                             </li>
                             <li>
-                                <a href="includes/add_post.php">Add Post</a>
+                                <a href="../admin/index.php">Add Post</a>
                             </li>
                         </ul>
                     </li>

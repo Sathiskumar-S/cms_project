@@ -23,7 +23,6 @@
                         <?php include "includes/display_post.php"?>
                     </div>
                 </div>
-                <!-- /.row -->
 
             </div>
             <!-- /.container-fluid -->

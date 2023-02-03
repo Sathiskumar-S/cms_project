@@ -2,7 +2,7 @@
     global $connection;
     if(isset($_POST['create_post'])){
         $post_title = $_POST['post_title'];
-        $post_category_id = $_POST['post_category_id'];
+        $post_category_id = $_POST['post_cat_id'];
         $post_author = $_POST['post_author'];
         $post_status = $_POST['post_status'];
         $post_content = $_POST['post_content'];
@@ -34,8 +34,19 @@
         <input type="text" class="form-control" name="post_title">
     </div>
     <div class="form-group">
-        <label for="id">Post Category Id</label>
-        <input type="text" class="form-control" name="post_category_id">
+        <select name="post_cat_id">
+        <?php
+            global $connection;
+            $query = "SELECT * FROM category";
+            $select_cat_admin = mysqli_query($connection,$query);
+            connection_error($select_cat_admin);
+            while($row = mysqli_fetch_array($select_cat_admin)){
+                $cat_id = $row['cat_id'];
+                $cat_name = $row['cat_name'];
+                echo "<option value='{$cat_name}'>$cat_name</option>";
+             }
+            ?>
+        </select>
     </div>
     <div class="form-group">
         <label for="author">Post Author</label>

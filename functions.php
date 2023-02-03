@@ -25,12 +25,13 @@ function fetch_category(){
 
 function fetch_sidebar_category(){
     global $connection;
-    $query = "SELECT * FROM category LIMIT 3";
+    $query = "SELECT * FROM category";
     $select_all_cat = mysqli_query($connection , $query);
 
     while($row = mysqli_fetch_assoc($select_all_cat)){
-        $post_cat = $row['cat_name'];
-        echo "<li>$post_cat</li>";
+        $cat_name = $row['cat_name'];
+        $cat_id = $row['cat_id'];
+        echo "<li><a href=category.php?category=$cat_id>$cat_name</a></li>";
     }
 }
 

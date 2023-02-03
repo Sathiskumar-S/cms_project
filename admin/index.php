@@ -24,20 +24,22 @@
                             <small>Author</small>
                         </h1>
                         <?php
-                            $source = "add_post";
-                            switch($source){
-                                case 'add_post':
-                                    include "includes/add_post.php";
+                            if(isset($_GET['source'])){
+                                $source = $_GET['source'];
+                                
+                                switch($source){
+                                    case 'add_post':
+                                        include "includes/add_post.php";
+                                        break;
+                                    case 'edit_post':
+                                        include "includes/edit_post.php";
+                                        break;
+                                }
                             }
+
+
+
                         ?>
-                        <!-- <ol class="breadcrumb">
-                            <li>
-                                <i class="fa fa-dashboard"></i>  <a href="index.html">Dashboard</a>
-                            </li>
-                            <li class="active">
-                                <i class="fa fa-file"></i> Blank Page
-                            </li>
-                        </ol> -->
                     </div>
                 </div>
                 <!-- /.row -->
