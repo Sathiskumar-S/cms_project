@@ -3,6 +3,7 @@
         <tr>
            <th>Id</th>
            <th>Category Id</th>
+           <th>Category</th>
            <th>Title</th>
            <th>Author</th>
            <th>Date</th>
@@ -25,6 +26,7 @@
             while($row = mysqli_fetch_assoc($fetch_post_query_connection)){
                 $post_id = $row['post_id'];
                 $post_cat_id = $row['post_cat_id'];
+                $post_category = $row['category'];
                 $post_title = $row['post_title'];
                 $post_author = $row['post_author'];
                 $post_date = $row['post_date'];
@@ -37,6 +39,7 @@
                 echo "<tr>";
                 echo "<td>$post_id</td>";
                 echo "<td>$post_cat_id</td>";
+                echo "<td>$post_category</td>";
                 echo "<td>$post_title</td>";
                 echo "<td>$post_author</td>";
                 echo "<td>$post_date</td>";

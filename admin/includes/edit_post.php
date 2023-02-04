@@ -68,7 +68,7 @@
             while($row = mysqli_fetch_array($select_cat_admin)){
                 $cat_id = $row['cat_id'];
                 $cat_name = $row['cat_name'];
-                echo "<option value='{$cat_name}'>$cat_name</option>";
+                echo "<option value='{$cat_id}'>$cat_name</option>";
              }
             ?>
         </select>

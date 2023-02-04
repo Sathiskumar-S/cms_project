@@ -2,7 +2,7 @@
 <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
                     <li>
-                        <a href="index.html"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
+                        <a href="index.php"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
                     </li>
                     <li>
                         <a href="#" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Posts<i class="fa fa-fw fa-caret-down"></i></a>
@@ -11,7 +11,7 @@
                                 <a href="../admin/view_post.php">View Post</a>
                             </li>
                             <li>
-                                <a href="../admin/index.php">Add Post</a>
+                                <a href="../admin/index.php?source=add_post">Add Post</a>
                             </li>
                         </ul>
                     </li>
