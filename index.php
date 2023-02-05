@@ -8,7 +8,6 @@
    <div class="container">
     <div class="row">
         <?php fetch_post();?>
-        <?php  include "includes/specific_post.php"?>
         <div class="col-md-3" style = "margin-top: 20px">
             <div class="bg-light p-5 rounded">
                 <h1>Categories</h1>

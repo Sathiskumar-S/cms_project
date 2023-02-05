@@ -35,24 +35,32 @@
                 echo "<td>$comment_content</td>";
                 echo "<td>$comment_email</td>";
                 echo "<td>$comment_status</td>";
-                echo "<td>Sample post</td>";
+
+                $display_post_title_query = "SELECT * FROM post WHERE post_id = $comment_post_id";
+                $display_post_title_query_connection = mysqli_query($connection,$display_post_title_query);
+                while($row = mysqli_fetch_assoc($display_post_title_query_connection)){
+                    $post_id = $row['post_id'];
+                    $post_title = $row['post_title'];
+                    echo "<td><a href='../specific_post.php?post_id=$post_id'>$post_title</a></td>";
+
+                }
                 echo "<td>$comment_date</td>";
                 echo "<td><a href=''>Approve</a></td>";
                 echo "<td><a href=''>Unapprove</a></td>";
-                echo "<td><a href=''>Delete</a></td>";
+                echo "<td><a href='comments.php?delete=$comment_id'>Delete</a></td>";
                 echo "</tr>";
             }
 
         ?>
 
         <?php
-            // if(isset($_GET['delete'])){
-            //     $the_post_id = $_GET['delete'];
-            //     $delete_post_query = "DELETE FROM post WHERE post_id={$the_post_id}";
-            //     $delete_post_query_connection = mysqli_query($connection,$delete_post_query);
-            //     connection_error($delete_post_query);
-            //     header("Location: view_post.php");
-            // }
+            if(isset($_GET['delete'])){
+                $the_comment_id = $_GET['delete'];
+                $delete_comment_query = "DELETE FROM comments WHERE comment_id={$the_comment_id}";
+                $delete_comment_query_connection = mysqli_query($connection,$delete_comment_query);
+                connection_error($delete_comment_query_connection);
+                header("Location: comments.php");
+            }
         ?>
     </tbody>
 </table>

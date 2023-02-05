@@ -60,7 +60,7 @@
                 $the_post_id = $_GET['delete'];
                 $delete_post_query = "DELETE FROM post WHERE post_id={$the_post_id}";
                 $delete_post_query_connection = mysqli_query($connection,$delete_post_query);
-                connection_error($delete_post_query);
+                connection_error($delete_post_query_connection);
                 header("Location: view_post.php");
             }
         ?>
