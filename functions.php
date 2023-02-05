@@ -43,6 +43,7 @@ function fetch_post(){
     $select_all_post_query = mysqli_query($connection,$query);
 
     while($row = mysqli_fetch_assoc($select_all_post_query)){
+        //$post_id = $row['post_id'];
         $post_title = $row['post_title'];
         $post_author = $row['post_author'];
         $post_date = $row['post_date'];
@@ -53,7 +54,7 @@ function fetch_post(){
         <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
             <div class="col p-4 d-flex flex-column position-static">
 
-                <h3 class="mb-0"><?php echo $post_title;?></h3>
+                <h3 class="mb-0"><a href=""><?php echo $post_title?></a></h3>
                 <h4>by <?php echo $post_author;?></h4>
                 <div class="mb-1 text-muted"><?php echo $post_date; ?></div>
                 <p class="mb-auto"><?php echo $post_content; ?></p>
@@ -64,7 +65,13 @@ function fetch_post(){
             </div>
         </div>
     </div>
+    <?php
+    if(isset($_GET['post_id'])){
+            $post_id = $_GET['post_id'];
+    }
+    ?>
 <?php }} ?>
+
 
 
 <?php

@@ -19,7 +19,7 @@
                         <a href="tables.html"><i class="fa fa-fw fa-table"></i> Categories</a>
                     </li>
                     <li>
-                        <a href="forms.html"><i class="fa fa-fw fa-edit"></i> Comment</a>
+                        <a href="../admin/comments.php"><i class="fa fa-fw fa-edit"></i> Comment</a>
                     </li>
                     <li>
                         <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Users<i class="fa fa-fw fa-caret-down"></i></a>
