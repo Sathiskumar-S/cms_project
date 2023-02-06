@@ -21,9 +21,9 @@
                     <li>
                         <a href="../admin/comments.php"><i class="fa fa-fw fa-edit"></i> Comment</a>
                     </li>
-                    <li>
-                        <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Users<i class="fa fa-fw fa-caret-down"></i></a>
-                        <ul id="demo" class="collapse">
+                    <!-- <li>
+                        <a href="#" data-toggle="collapse" data-target=""><i class="fa fa-fw fa-arrows-v"></i> Users<i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul  class="collapse">
                             <li>
                                 <a href="#">Dropdown Item</a>
                             </li>
@@ -31,6 +31,12 @@
                                 <a href="#">Dropdown Item</a>
                             </li>
                         </ul>
+                    </li> -->
+                    <li>
+                        <a href="../admin/index.php?source=add_user"><i class="fa fa-fw fa-edit"></i> Add User</a>
+                    </li>
+                    <li>
+                        <a href="../admin/users.php"><i class="fa fa-fw fa-edit"></i> View User</a>
                     </li>
                     <li class="active">
                         <a href="blank-page.html"><i class="fa fa-fw fa-file"></i> Profile</a>

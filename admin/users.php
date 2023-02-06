@@ -23,19 +23,17 @@
                             Welcome to Admin
                             <small>Author</small>
                         </h1>
+                        <?php  include "includes/display_user.php" ?>
                         <?php
                             if(isset($_GET['source'])){
                                 $source = $_GET['source'];
                                 
                                 switch($source){
-                                    case 'add_post':
-                                        include "includes/add_post.php";
-                                        break;
-                                    case 'edit_post':
-                                        include "includes/edit_post.php";
-                                        break;
                                     case 'add_user':
                                         include "includes/add_user.php";
+                                        break;
+                                    case 'edit_user':
+                                        include "includes/edit_user.php";
                                         break;
                                 }
                             }

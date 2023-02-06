@@ -70,6 +70,11 @@
                         $insert_comment_query = "INSERT INTO comments (comment_post_id,comment_author,comment_email,comment_content,comment_status,comment_date) VALUES ({$the_post_id},'{$comment_author}','{$comment_email}','{$comment_content}','{$comment_status}',now())";
                         $insert_comment_query_connnection = mysqli_query($connection,$insert_comment_query);
                         connection_error($insert_comment_query_connnection);
+
+                        $comment_count_query = "UPDATE post SET post_comment_count = post_comment_count + 1 WHERE post_id = $the_post_id";
+                        $comment_count_query_connection = mysqli_query($connection,$comment_count_query);
+                        connection_error($comment_count_query_connection);
+
                     }
                     //header("Location: specific_post.php?post_id=$post_id");
 
@@ -77,18 +82,32 @@
 
                 <!-- Posted Comments -->
 
+                <?php
+                    $display_comment_query = "SELECT * FROM comments WHERE comment_post_id = {$post_id} AND comment_status = 'approve' ORDER BY comment_id DESC";
+                    $display_comment_query_connection = mysqli_query($connection,$display_comment_query);
+                    connection_error($display_comment_query_connection);
+
+                    while($row = mysqli_fetch_assoc($display_comment_query_connection)){
+                        $comment_author = $row['comment_author'];
+                        $comment_content = $row['comment_content'];
+                        $comment_date = $row['comment_date'];
+                    
+
+                ?>
+
                 <!-- Comment -->
                 <div class="media"><br>
                     <a class="pull-left" href="#">
                         <img class="media-object" src="http://placehold.it/64x64" alt="">
                     </a>
                     <div class="media-body">
-                        <h4 class="media-heading">Start Bootstrap
-                            <small>August 25, 2014 at 9:30 PM</small>
+                        <h4 class="media-heading"><?php echo $comment_author?>
+                            <small><?php echo $comment_date?></small>
                         </h4>
-                        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+                        <?php echo $comment_content ?>
                     </div>
                 </div>
+            <?php  } ?>
         <!-- <div class="col-md-3" style = "margin-top: 20px">
             <div class="bg-light p-5 rounded">
                 <h1>Categories</h1>

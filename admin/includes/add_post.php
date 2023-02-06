@@ -12,7 +12,7 @@
         $post_image_temp = $_FILES['image']['tmp_name'];
 
         $post_date = date('d-m-y');
-        $post_comment_count = 4;
+        //$post_comment_count = 4;
 
 
         move_uploaded_file($post_image_temp,"../images/$post_image");
@@ -22,7 +22,6 @@
 
         $insert_connection = mysqli_query($connection,$insert_post_query);
         connection_error($insert_connection);
-
     }
 
 ?>
