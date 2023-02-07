@@ -1,8 +1,15 @@
 <?php include "admin_functions.php"?>
 <?php include "includes/admin_header.php"?>
 
-
+<?php session_start();?>
 <?php ob_start(); ?>
+<?php
+if(isset($_SESSION['user_role'])){
+    if($_SESSION['user_role'] !== 'admin'){
+        header("Location: ../index.php");
+    }
+}
+?>
 <body>
 
     <div id="wrapper">
@@ -21,7 +28,7 @@
                     <div class="col-lg-12">
                         <h1 class="page-header">
                             Welcome to Admin
-                            <small>Author</small>
+                            <small><?php echo $_SESSION['user_name']; ?></small>
                         </h1>
                         <?php
                             if(isset($_GET['source'])){

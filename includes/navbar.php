@@ -11,6 +11,7 @@
                     fetch_category();
                 ?>
                 <li><a href="admin">Admin</a></li>
+                <li><a href="includes/login.php">Login</a></li>
             </ul>
             <!-- search engine -->
             <form class="d-flex" role="search" action="search.php" method="post">

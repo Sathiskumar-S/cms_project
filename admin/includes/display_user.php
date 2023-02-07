@@ -38,7 +38,7 @@
                 echo "<td>$user_role</td>";
                 echo "<td><a href='users.php?admin=$user_id'>Change to Admin</a></td>";
                 echo "<td><a href='users.php?subscriber=$user_id'>Change to Subscriber</a></td>";
-                echo "<td><a href=''>Edit</a></td>";
+                echo "<td><a href='users.php?source=edit_user&user_id=$user_id'>Edit</a></td>";
                 echo "<td><a href='users.php?delete=$user_id'>Delete</a></td>";
                 echo "</tr>";
             }
