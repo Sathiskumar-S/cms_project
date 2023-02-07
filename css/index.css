@@ -1,0 +1,14 @@
+body{
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.homenav{
+    background: linear-gradient(to right,#1fa2ff,#12D8FA,#A6FFCB);
+}
+
+.navitems li a{
+    text-decoration: none;
+    color: black;
+    padding-right: 5px;
+}
+

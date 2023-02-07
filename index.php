@@ -3,12 +3,12 @@
 <?php ob_start(); ?>
 <body>
     <!-- navbar -->
-    <?php include "includes/navbar.php"?>
+ <?php include "includes/navbar.php"?>
   <main>
    <div class="container">
     <div class="row">
         <?php fetch_post();?>
-        <div class="col-md-3" style = "margin-top: 20px">
+        <div class="col-md-3 category position-relative" style = "margin-top: 20px">
             <div class="bg-light p-5 rounded">
                 <h1>Categories</h1>
                 <?php
