@@ -10,7 +10,8 @@
 
     while($row = mysqli_fetch_assoc($edit_post_query_connection)){
         $post_id = $row['post_id'];
-        $post_cat_id = $row['post_cat_id'];
+        //$post_cat_id = $row['post_cat_id'];
+        $post_category = $row['category'];
         $post_title = $row['post_title'];
         $post_author = $row['post_author'];
         $post_date = $row['post_date'];
@@ -23,7 +24,8 @@
 
 
     if(isset($_POST['update_post'])){
-        $post_cat_id = $_POST['post_cat_id'];
+        //$post_cat_id = $_POST['post_cat_id'];
+        $post_category = $row['category'];
         $post_title = $_POST['post_title'];
         $post_author = $_POST['post_author'];
         $post_date = $_POST['post_date'];
@@ -45,7 +47,7 @@
             }
         }
 
-        $update_query = "UPDATE post SET post_title='{$post_title}',post_cat_id='{$post_cat_id}',post_date=now(),post_author='{$post_author}',post_status='{$post_status}',post_tags='{$post_tags}',post_content='{$post_content}',post_image='{$post_image}' WHERE post_id={$post_id}";
+        $update_query = "UPDATE post SET post_title='{$post_title}',category='{$post_category}',post_date=now(),post_author='{$post_author}',post_status='{$post_status}',post_tags='{$post_tags}',post_content='{$post_content}',post_image='{$post_image}' WHERE post_id={$post_id}";
 
         $update_connection = mysqli_query($connection,$update_query);
         connection_error($update_connection);
@@ -59,7 +61,7 @@
         <input type="text" class="form-control" name="post_title" value="<?php echo $post_title;?>">
     </div>
     <div class="form-group">
-    <select name="post_cat_id">
+    <select name="category">
         <?php
             global $connection;
             $query = "SELECT * FROM category";
