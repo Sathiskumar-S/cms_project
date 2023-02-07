@@ -25,8 +25,8 @@
 
     if(isset($_POST['update_post'])){
         //$post_cat_id = $_POST['post_cat_id'];
-        $post_category = $row['category'];
         $post_title = $_POST['post_title'];
+        $post_category = $_POST['category'];
         $post_author = $_POST['post_author'];
         $post_date = $_POST['post_date'];
         $post_image = $_FILES['image']['name'];
@@ -70,7 +70,7 @@
             while($row = mysqli_fetch_array($select_cat_admin)){
                 $cat_id = $row['cat_id'];
                 $cat_name = $row['cat_name'];
-                echo "<option value='{$cat_id}'>$cat_name</option>";
+                echo "<option value='{$cat_name}'>$cat_name</option>";
              }
             ?>
         </select>

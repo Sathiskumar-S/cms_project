@@ -2,7 +2,7 @@
     global $connection;
     if(isset($_POST['create_post'])){
         $post_title = $_POST['post_title'];
-        $post_category_id = $_POST['post_cat_id'];
+        $post_category = $_POST['category'];
         $post_author = $_POST['post_author'];
         $post_status = $_POST['post_status'];
         $post_content = $_POST['post_content'];
@@ -17,7 +17,7 @@
 
         move_uploaded_file($post_image_temp,"../images/$post_image");
 
-        $insert_post_query = "INSERT INTO post(category,post_title,post_author,post_date,post_image,post_content,post_tags,post_status) VALUES({$post_category_id},'{$post_title}','{$post_author}',now(),'{$post_image}','{$post_content}','{$post_tags}','{$post_status}' )";
+        $insert_post_query = "INSERT INTO post(category,post_title,post_author,post_date,post_image,post_content,post_tags,post_status) VALUES('{$post_category}','{$post_title}','{$post_author}',now(),'{$post_image}','{$post_content}','{$post_tags}','{$post_status}' )";
 
 
         $insert_connection = mysqli_query($connection,$insert_post_query);
@@ -33,7 +33,7 @@
         <input type="text" class="form-control" name="post_title">
     </div>
     <div class="form-group">
-        <select name="post_cat_id">
+        <select name="category">
         <?php
             global $connection;
             $query = "SELECT * FROM category";

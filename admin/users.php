@@ -1,7 +1,7 @@
 <?php include "admin_functions.php"?>
 <?php include "includes/admin_header.php"?>
 
-
+<?php session_start();?>
 <?php ob_start(); ?>
 <body>
 
@@ -21,7 +21,7 @@
                     <div class="col-lg-12">
                         <h1 class="page-header">
                             Welcome to Admin
-                            <small>Author</small>
+                            <small><?php echo $_SESSION['user_name'];?></small>
                         </h1>
                         <?php  include "includes/display_user.php" ?>
                         <?php

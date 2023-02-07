@@ -16,22 +16,11 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="tables.html"><i class="fa fa-fw fa-table"></i> Categories</a>
+                        <a href="../admin/categories.php"><i class="fa fa-fw fa-table"></i> Categories</a>
                     </li>
                     <li>
                         <a href="../admin/comments.php"><i class="fa fa-fw fa-edit"></i> Comment</a>
                     </li>
-                    <!-- <li>
-                        <a href="#" data-toggle="collapse" data-target=""><i class="fa fa-fw fa-arrows-v"></i> Users<i class="fa fa-fw fa-caret-down"></i></a>
-                        <ul  class="collapse">
-                            <li>
-                                <a href="#">Dropdown Item</a>
-                            </li>
-                            <li>
-                                <a href="#">Dropdown Item</a>
-                            </li>
-                        </ul>
-                    </li> -->
                     <li>
                         <a href="../admin/index.php?source=add_user"><i class="fa fa-fw fa-edit"></i> Add User</a>
                     </li>
