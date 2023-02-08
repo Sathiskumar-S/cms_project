@@ -28,7 +28,7 @@
                         <a href="../admin/users.php"><i class="fa fa-fw fa-edit"></i> View User</a>
                     </li>
                     <li class="active">
-                        <a href="blank-page.html"><i class="fa fa-fw fa-file"></i> Profile</a>
+                        <a href="../admin/profile.php"><i class="fa fa-fw fa-file"></i> Profile</a>
                     </li>
                 </ul>
             </div>
